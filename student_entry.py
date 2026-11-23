@@ -8,16 +8,14 @@ r = Tk()
 r.title("STUDENT DATA")
 
 def display():
-    Dict = {"NAME":un.get(),"gender":gender.get(),"roll no":roll_var.get(),"class":cls_var.get(),"bio":bio_var.get(),"che":che_var.get(),"phy":phy_var.get()}
+    Dict = {"NAME": un.get(),"gender": gender.get(),"roll no": roll_var.get(),"class": cls_var.get(),"bio": bio_var.get(),"che": che_var.get(),"phy": phy_var.get() }
+
     with open("student_entry.csv", "a", newline="") as f:
-        fildes = ["NAME","gender","roll no","class","bio","che","phy"]
-        csvWriter = csv.DictWriter(f,fieldnames=fildes)
-        csvWriter.writeheader()
+        csvWriter = csv.DictWriter(f, fieldnames=Dict.keys())
         csvWriter.writerow(Dict)
-    # s = [un.get(),gender.get(),roll_var.get(),cls_var.get(),bio_var.get(),che_var.get(),phy_var.get()]
-        
 
     messagebox.showinfo("Success", "Data saved successfully!")
+
 un = StringVar()
 gender = StringVar()
 roll_var = IntVar()
